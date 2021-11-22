@@ -7,6 +7,8 @@ from devices.models import Ripening_chamber_zone, Controler_type, Controler, Con
 class ControlerAdmin(admin.ModelAdmin):
     list_display = ('name', 'type', 'chamber_zone',)
 
+    list_filter = ('type', 'chamber_zone',)
+
 
 class ControlerTypeAdmin(admin.ModelAdmin):
     list_display = ('name',)
@@ -15,9 +17,13 @@ class ControlerTypeAdmin(admin.ModelAdmin):
 class ControlerRecordAdmin(admin.ModelAdmin):
     list_display = ('controler', 'status', 'datetime',)
 
+    list_filter = ('status',)
+
 
 class SensorAdmin(admin.ModelAdmin):
     list_display = ('name', 'type', 'chamber_zone',)
+
+    list_filter = ('type', 'chamber_zone',)
 
 
 class SensorTypeAdmin(admin.ModelAdmin):
@@ -26,6 +32,8 @@ class SensorTypeAdmin(admin.ModelAdmin):
 
 class SensorMeasureAdmin(admin.ModelAdmin):
     list_display = ('sensor', 'measure', 'datetime',)
+
+    list_filter = ('sensor', 'measure',)
 
 
 class RipeningChamberZoneAdmin(admin.ModelAdmin):
