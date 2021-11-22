@@ -9,6 +9,9 @@ class Cheese(models.Model):
     ingredients = models.TextField(null=False)
     ripening_period = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return self.name
+
 
 class Cheese_condition(models.Model):
     current_condition = models.TextField(max_length=300)

@@ -1,17 +1,20 @@
 from django.contrib import admin
 
 from products.models import Cheese, Cheese_condition, Cheese_batch
-from devices.models import Ripening_chamber_zone, Controler_type, Controler, Controler_record, Sensor_type, Sensor, \
-    Sensor_measure
-# Register your models here.
 
-admin.site.register(Cheese)
-admin.site.register(Cheese_condition)
-admin.site.register(Cheese_batch)
-admin.site.register(Ripening_chamber_zone)
-admin.site.register(Controler_type)
-admin.site.register(Controler)
-admin.site.register(Controler_record)
-admin.site.register(Sensor_type)
-admin.site.register(Sensor)
-admin.site.register(Sensor_measure)
+
+class CheeseAdmin(admin.ModelAdmin):
+    list_display = ('name', 'ripening_period')
+
+
+class CheeseConditionAdmin(admin.ModelAdmin):
+    list_display = ('cheese', 'current_condition', 'previous_condition', 'term_days',)
+
+
+class CheeseBatchAdmin(admin.ModelAdmin):
+    list_display = ('cheese', 'amount', 'chamber_zone', 'datetime',)
+
+
+admin.site.register(Cheese, CheeseAdmin)
+admin.site.register(Cheese_condition, CheeseConditionAdmin)
+admin.site.register(Cheese_batch, CheeseBatchAdmin)
