@@ -26,8 +26,9 @@ class Controler(models.Model):
         return self.name
 
 
+CONTROLER_RECORD_CHOICES = [('True', True), ('False', False),]
 class Controler_record(models.Model):
-    status = models.CharField(max_length=30, null=False)
+    status = models.CharField(max_length=5, choices=CONTROLER_RECORD_CHOICES, default=0, blank=False)
     datetime = models.DateTimeField(default=timezone.now)
     controler = models.ForeignKey(Controler, on_delete=models.CASCADE, default=None)
 
@@ -50,6 +51,6 @@ class Sensor(models.Model):
 
 
 class Sensor_measure(models.Model):
-    measure = models.CharField(max_length=50, null=False, blank=False)
+    measure = models.IntegerField()
     datetime = models.DateTimeField(default=timezone.now)
     sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE)
