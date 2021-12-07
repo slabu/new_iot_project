@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for controler in controlers %}
+        <p><a href="{% url 'device-chart' controler.id %}">{{ controler }}</a></p>
+    {% endfor %}
+</body>
+</html>

@@ -5,7 +5,7 @@ from devices.models import Ripening_chamber_zone, Controler_type, Controler, Con
 
 
 class ControlerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'type', 'chamber_zone',)
+    list_display = ('name', 'type', 'chamber_zone', 'chart_url')
 
     list_filter = ('type', 'chamber_zone',)
 
@@ -21,7 +21,7 @@ class ControlerRecordAdmin(admin.ModelAdmin):
 
 
 class SensorAdmin(admin.ModelAdmin):
-    list_display = ('name', 'type', 'chamber_zone',)
+    list_display = ('name', 'type', 'chamber_zone', 'chart_url')
 
     list_filter = ('type', 'chamber_zone',)
 
